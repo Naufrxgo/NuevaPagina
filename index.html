@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Style-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+
+    <title>Pagina Web</title>
+  </head>
+  <body>
+    <header></header>
+
+    <!--MODELOS-->
+  <div>
+   <model-viewer
+                src="https://cdn.glitch.me/682402d1-d7ab-4d6e-8d73-c5815dbdff85%2Fmodelo3d.glb?v=1638220878982"
+                camera-controls
+                autoplay
+                animation-name="animation.001"
+                ar-modes="scene-viewer webxr quick-look"
+                ar
+                auto-rotate
+              
+                reveal="interaction"
+              >
+              </model-viewer>
+    <script src="script.js"></script>
+    
+    </div>
+    <!--IMAGEN-->
+    <div>
+      <img class="containerimage" src="https://source.unsplash.com/random/?river,park" alt="">
+    </div>
+    
+    <!--VIDEO-->
+    
+   
+
+    <!--MOVIMIENTO 3D-->
+    <style>
+      input {
+        width: 60vw;
+        display: flex;
+      }
+    </style>
+
+    <div class="poke">
+      <canvas id="canvas"></canvas>
+      <input type="range" min="1" max="39" step="1" value="1" id="slider" />
+      
+      <script>
+        const slider = document.querySelector("#slider");
+        const canvas = document.querySelector("#canvas");
+        slider.addEventListener("input", handleInputSlider);
+        const ctx = canvas.getContext("2d");
+        const images = [];
+        window.addEventListener("load", pageLoaded);
+        function pageLoaded() {
+          for (let i = 1; i <= 39; i += 1) {
+            const number = i.toString().padStart(2, "00");
+            const url = `./modelouno/${number}.jpg`;
+            const image = new Image();
+            image.src = url;
+            image.addEventListener("load", () => {
+              images[i] = image;
+              if (i === 1) {
+                loadImage(i);
+              }
+            });
+          }
+        }
+        function loadImage(index) {
+          ctx.drawImage(images[index], 0, 0, canvas.width, canvas.height);
+        }
+        function handleInputSlider() {
+          console.log(this.value);
+          loadImage(this.value);
+        }
+      </script>
+    </div>
+    <!--MOVIMIENTO 3D DOS-->
+<div>
+       <video class="video" src="https://cdn.glitch.me/682402d1-d7ab-4d6e-8d73-c5815dbdff85%2FCOSTA%20RICA%20IN%204K%2060fps%20HDR%20(ULTRA%20HD).mp4?v=1638233320819" controls></video>
+    </div>
+    <!--CARRUSEL-->
+    <div class="products_body center">
+      <div class="wrapper">
+        <div class="container">
+          <img
+            class="top"
+            src="https://source.unsplash.com/random/?river,park"
+            alt=""
+          />
+          <div class="bottom">
+            <div class="left">
+              <div class="details">
+                <h2 class="txt_products">imagen uno</h2>
+                <p>descripcion</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="icon">
+            <i class="far fa-eye"></i>
+          </div>
+          <div class="contents">
+            <h1>Nombre</h1>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+          <img
+            class="top"
+            src="https://source.unsplash.com/random/?river,park"
+            alt=""
+          />
+          <div class="bottom">
+            <div class="left">
+              <div class="details">
+                <h2 class="txt_products">imagen dos</h2>
+                <p>descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="icon">
+            <i class="far fa-eye"></i>
+          </div>
+          <div class="contents">
+            <h1>Nombre</h1>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+          <img
+            class="top"
+            src="https://source.unsplash.com/random/?river,park"
+            alt=""
+          />
+          <div class="bottom">
+            <div class="left">
+              <div class="details">
+                <h2 class="txt_products">imagen tres</h2>
+                <p>descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="icon">
+            <i class="far fa-eye"></i>
+          </div>
+          <div class="contents">
+            <h1>Nombre</h1>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+          <img
+            class="top"
+            src="https://source.unsplash.com/random/?river,park"
+            alt=""
+          />
+          <div class="bottom">
+            <div class="left">
+              <div class="details">
+                <h2 class="txt_products">imagen cuatro</h2>
+                <p>descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="icon">
+            <i class="far fa-eye"></i>
+          </div>
+          <div class="contents">
+            <h1>Nombre</h1>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+          <img
+            class="top"
+            src="https://source.unsplash.com/random/?river,park"
+            alt=""
+          />
+          <div class="bottom">
+            <div class="left">
+              <div class="details">
+                <h2 class="txt_products">imagen cinco</h2>
+                <p>descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="icon">
+            <i class="far fa-eye"></i>
+          </div>
+          <div class="contents">
+            <h1>Nombre</h1>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="container">
+          <img
+            class="top"
+            src="https://source.unsplash.com/random/?river,park"
+            alt=""
+          />
+          <div class="bottom">
+            <div class="left">
+              <div class="details">
+                <h2 class="txt_products">imagen seis</h2>
+                <p>descripción</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="inside">
+          <div class="icon">
+            <i class="far fa-eye"></i>
+          </div>
+          <div class="contents">
+            <h1>Nombre</h1>
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <img
+        id="footer"
+        src="https://cdn.glitch.me/682402d1-d7ab-4d6e-8d73-c5815dbdff85%2Ffooter.png?v=1638174656633"
+        alt=""
+      />
+    </footer>
+
+    <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--CDN-->
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script src="carusel.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+    ></script>
+  </body>
+</html>
